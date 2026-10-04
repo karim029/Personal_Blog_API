@@ -9,26 +9,26 @@ export class BlogsController {
 
   @Post()
   create(@Body() createBlogDto: CreateBlogDto) {
-    return this.blogsService.create(createBlogDto);
+    return this.blogsService.createBlog(createBlogDto);
   }
 
   @Get()
   findAll() {
-    return this.blogsService.findAll();
+    return this.blogsService.findAllBlogs();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.blogsService.findOne(+id);
+    return this.blogsService.findOneBlog(+id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateBlogDto: UpdateBlogDto) {
-    return this.blogsService.update(+id, updateBlogDto);
+    return this.blogsService.updateBlog(+id, updateBlogDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.blogsService.remove(+id);
+    return this.blogsService.removeBlog(+id);
   }
 }
